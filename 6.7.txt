@@ -1,0 +1,36 @@
+
+
+package futureInvestmentValue;
+import java.util.*;
+import java.util.concurrent.FutureTask;
+import java.math.*;
+public class FutureInvestment {
+	
+	public static double futureInvestmentValue(double investmentAmount , double monthlyInterestRate , int year)
+	{
+		return investmentAmount * Math.pow((1 + monthlyInterestRate), year * 12);
+	}
+	
+	public static void main(String[]args)
+	{
+		double investmentAmount ,  monthlyInterestRate;
+		int year;
+		
+		System.out.print("Enter investment amount : ");
+		
+		Scanner input = new Scanner(System.in);
+		
+		investmentAmount = input.nextDouble();
+		
+		System.out.print("Enter monthly interest rate : ");
+		
+		monthlyInterestRate = input.nextDouble() / 100;
+		
+		System.out.println("Years\t\t\tFuture Value");
+		for(int i = 1 ; i <= 30 ; i++)
+		{
+			System.out.println(String.format("%d\t\t\t%f", i , futureInvestmentValue(investmentAmount, monthlyInterestRate, i)));
+		}
+		
+	}
+}
